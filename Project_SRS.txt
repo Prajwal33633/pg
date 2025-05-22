@@ -1,0 +1,795 @@
+Infosys Limited
+
+
+
+
+
+Package Tracking System
+
+Requirements Specification Document
+
+Date: 28-02-2025
+
+
+
+
+
+PROJECT DESCRIPTION
+
+
+
+
+
+This internship project focuses on developing a comprehensive package tracking system that leverages distribution center data to monitor shipments throughout the delivery network. The system will optimize package handling and provide accurate delivery estimates.
+
+
+
+
+
+
+
+
+
+USER STORIES
+
+
+
+
+
+
+
+US 01 – 
+
+Customer Tracking
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a customer, I want to track my package by entering a tracking number so that I can see its current status and location.
+
+Acceptance Criteria:
+
+
+
+Accepts alphanumeric tracking numbers
+
+Shows current status and last known location with timestamp
+
+Provides estimated delivery date
+
+Shows complete package history
+
+
+
+
+
+
+
+
+
+
+
+US 02 – 
+
+Distribution Center Manager View
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a distribution center manager, I want to see real-time package volumes and status to allocate resources.
+
+Acceptance Criteria:
+
+
+
+Dashboard with package counts by status
+
+Filter by type, destination, priority
+
+Alerts for spikes
+
+
+
+
+
+
+US 03 – 
+
+Delayed Package Flagging
+
+
+Priority: Must Have
+
+User Story: As a logistics coordinator, I want delayed packages automatically flagged.
+
+Acceptance Criteria:
+
+
+
+Identify packages deviating from timelines
+
+Categorize delay severity
+
+Highlight in sorting queue
+
+
+
+
+
+
+
+US 04 – 
+
+Incoming Volume Forecasting
+
+
+Priority: Must Have
+
+User Story: As a DC supervisor, I want to track incoming volumes for planning staffing.
+
+Acceptance Criteria:
+
+
+
+Forecasts for next 24, 48, 72 hours
+
+Historical trend comparison
+
+Breakdown by size, type, destination
+
+
+
+
+
+
+
+
+
+
+
+US 05 – 
+
+Optimal Routing
+
+
+Priority: Must Have
+
+User Story: As a sorting facility operator, I want optimal routing for each package.
+
+Acceptance Criteria:
+
+
+
+Based on destination, priority, capacity
+
+Visual indicators for sorting
+
+Real-time updates and performance tracking
+
+
+
+
+US 06 – 
+
+Capacity Metrics
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a DC manager, I want to view capacity metrics.
+
+Acceptance Criteria:
+
+
+
+Visualizations of current capacity
+
+Breakdown by area (intake, sorting, outbound)
+
+Threshold alerts
+
+Historical data comparison
+
+
+
+
+
+
+
+
+US 07 – 
+
+Transfer Scheduling
+
+
+Priority: Must Have
+
+User Story: As a logistics planner, I want to view inter-center transfer schedules.
+
+Acceptance Criteria:
+
+
+
+Calendar view
+
+Volume estimates
+
+Capacity metrics
+
+Adjustable schedules
+
+
+
+
+
+
+
+
+
+
+US 08 – 
+
+Customer Service Lookup
+
+Priority: Must Have
+
+User Story: As a CSR, I want detailed package info for inquiries.
+
+Acceptance Criteria:
+
+Search by tracking number, name, address
+
+Full history and communication log
+
+Add notes and initiate exceptions
+
+
+
+US 09
+User Story Description
+As a returns processor, I want to process and track returned packages so that they're properly accounted for in the system.
+Acceptance Criteria 
+•	Link to original outbound tracking information
+•	Routing instructions for returned items
+•	Metrics on return volumes and reasons
+
+
+
+
+
+
+
+
+
+
+
+US 09 – 
+
+Returns Processing
+
+
+
+Priority: Must Have
+
+User Story: As a returns processor, I want to track returned packages.
+
+Acceptance Criteria:
+
+
+
+Link to original tracking
+
+Routing instructions
+
+Volume and reason metrics
+
+
+
+
+
+
+
+
+
+
+
+US 10 – 
+
+Damage Tracking
+
+
+
+
+
+Priority: Must Have
+
+User Story: As QA manager, I want to track damaged package incidents.
+
+Acceptance Criteria:
+
+
+
+Record details and categorize damage
+
+Report by route/handler/packaging
+
+Analyze trends
+
+
+
+
+
+
+
+
+
+
+
+US 11 – 
+
+Special Handling
+
+
+
+
+
+Priority: Must Have
+
+User Story: As DC supervisor, I want to handle oversized/special packages.
+
+Acceptance Criteria:
+
+
+
+Flagging for size/weight exceptions
+
+Routing and fee calculation
+
+Performance tracking
+
+
+
+
+
+
+
+
+
+
+
+US 12 – 
+
+Security Screening
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a security officer, I want to flag suspicious packages.
+
+Acceptance Criteria:
+
+
+
+Criteria-based identification
+
+Holding area assignment
+
+Custody tracking
+
+
+
+
+
+
+
+
+
+
+
+US 13 – 
+
+Performance Reporting
+
+
+
+
+
+Priority: Must Have
+
+User Story: As operations manager, I want performance reports.
+
+Acceptance Criteria:
+
+
+
+Report on time, accuracy, volume
+
+Center-wise comparison
+
+Scheduled generation
+
+
+
+
+
+(Repeated twice in document)
+
+
+
+
+
+
+
+
+
+US 14 – 
+
+Issue Reporting
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a customer, I want to report a delivery problem.
+
+Acceptance Criteria:
+
+
+
+Form on tracking page
+
+Common issue selection
+
+Auto-case creation and acknowledgment
+
+
+
+
+
+
+
+
+
+
+
+US 15 – 
+
+Shipping Cost Calculation
+
+
+
+
+
+Priority: Must Have
+
+User Story: As a finance manager, I want accurate cost calculation.
+
+Acceptance Criteria:
+
+
+
+Auto-calculation by weight, size, distance
+
+Support for surcharges
+
+Cost breakdown and bulk pricing
+
+
+
+
+
+
+
+
+
+
+
+FRONTEND COMPONENTS
+
+
+
+
+
+Customer Tracking Portal:
+
+
+
+Input with alphanumeric validation
+
+Status, location, delivery estimate
+
+Interactive timeline
+
+
+
+
+
+Exception Management Console:
+
+
+
+Delay queue, damage reporting
+
+Special handling workflows
+
+Suspicious package tracking
+
+
+
+
+
+CSR Portal:
+
+
+
+Search by multiple parameters
+
+Timeline and communication history
+
+Action buttons (refund, reroute, escalate)
+
+
+
+
+
+Returns Station:
+
+
+
+Return authorization
+
+Original order lookup
+
+Reason categorization and metrics
+
+
+
+
+
+Financial Interface:
+
+
+
+Cost calculator, fee management
+
+Cost visualization and reports
+
+Invoice management
+
+
+
+
+
+Reporting & Analytics Hub:
+
+
+
+Report generation and forecasting
+
+KPI performance comparison
+
+
+
+
+
+
+
+
+
+
+
+ENVIRONMENT REQUIREMENTS
+
+
+
+
+
+Technology Stack:
+
+
+
+Backend: Spring Boot, Spring Data, Spring REST, Spring Cloud Consul
+
+Frontend: Angular/React, TypeScript/JavaScript, HTML5, CSS3, Bootstrap
+
+Database: MySQL/NoSQL
+
+Security: OAuth/Spring Security
+
+
+
+
+
+Non-Functional Requirements:
+
+
+
+Performance: Fast, responsive
+
+Scalability: Handle high traffic
+
+Security: Encryption, secure auth, hashing, protect against XSS, SQLi
+
+Reliability: Minimal downtime
+
+Usability: Simple, intuitive UI
+
+Maintainability: Clean code
+
+Compatibility: Support various devices
+
+Session Management: Short-lived, timeouts
+
+Caching & Lazy Loading
+
+UI/UX Design: Responsive, clear
+
+
+
+
+
+
+
+
+
+
+
+FINAL DELIVERABLES
+
+
+
+
+
+JAR file with source code
+
+DDL Script
+
+Full source code
+
+UI screenshots
+
+
+
+
+
+
+
+
+
+
+
+IMPLEMENTATION GUIDELINES
+
+
+
+
+
+Use Lombok, Lambdas, and Streams
+
+Layered architecture (controller, service, DTO, entity)
+
+Spring DI, meaningful package naming
+
+
+
+
+
+
+
+
+
+
+
+GENERAL GUIDELINES
+
+
+
+
+
+Error Handling:
+
+
+
+Auth checks
+
+Custom exceptions
+
+Centralized handling
+
+LoggingAspect for exceptions
+
+
+
+
+
+DTOs & Mapping:
+
+
+
+Use DTOs, avoid exposing entities
+
+Use ModelMapper
+
+
+
+
+
+Database Interaction:
+
+
+
+Use Spring Data Repository
+
+Define properties and strategies
+
+
+
+
+
+API Design:
+
+
+
+Base URI mapping
+
+Proper HTTP methods/status codes
+
+Swagger for documentation
+
+
+
+
+
+Microservices:
+
+
+
+Circuit Breaker (timeout: 3s, threshold: 50%, 10 failures => open for 60s)
+
+Fallback mechanisms
+
+Load balancing with 2 instances
+
+
+
+
+
+Validation:
+
+
+
+Bean validation
+
+Custom validators
+
+Validate for null/empty
+
+“Please provide a valid ”
+
+No date/time starting with zero
+
+
+
+
+
+Testing:
+
+
+
+JUnit + Mockito
+
+80% code coverage
